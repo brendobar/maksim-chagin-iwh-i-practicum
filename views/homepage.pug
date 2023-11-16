@@ -8,3 +8,15 @@ html
         .container 
             h1 #{title}
             a(href='http://localhost:3000/update-cobj') Update This table
+            table
+                thead
+                    tr 
+                        th  Name
+                        th Brand
+                        th Model
+                tbody
+                each car in data
+                    tr
+                        td.car__name #{car.properties.name}
+                        td.car__brand #{car.properties.brand}
+                        td.car__model #{car.properties.model}

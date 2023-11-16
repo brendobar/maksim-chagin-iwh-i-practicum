@@ -14,6 +14,24 @@ const PRIVATE_APP_ACCESS = 'pat-na1-2d68c6d5-0454-4e21-881c-a8dbedd7f31c';
 
 // * Code for Route 1 goes here
 
+app.get('/', async (req, res) => {
+    var titleHome = "Home page!";
+    const cars = "https://api.hubapi.com/crm/v3/objects/2-20591907?limit=10&properties=name&properties=brand&properties=model";
+    const contacts = 'https://api.hubspot.com/crm/v3/objects/contacts';
+    const headers = {
+        Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
+        'Content-Type': 'application/json'
+    }
+    try {
+        const resp = await axios.get(cars, { headers });
+        const data = resp.data.results;
+        res.render('homepage', { title: titleHome, data });      
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+
 // TODO: ROUTE 2 - Create a new app.get route for the form to create or update new custom object data. Send this data along in the next route.
 
 // * Code for Route 2 goes here
