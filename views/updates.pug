@@ -8,3 +8,12 @@ html
         .container
             h1 #{title}
             a(href='http://localhost:3000/') Return to the homepage
+
+            form(method="POST", action="http://localhost:3000/update-cobj")
+                label(for="car_name") Name:
+                    input(type="text", name="car_name", id="car_name")
+                label(for="car_brand") Brand:
+                    input(type="text", name="car_brand", id="car_brand")
+                label(for="car_model") Model:
+                    input(type="text", name="car_model", id="car_model")
+                input(type="submit", value="Save")
